@@ -47,7 +47,7 @@ Route::group(['prefix'=>'action'],function(){
 Route::group(['prefix'=>"user"],function(){
 
     Route::get('/connection',function(){
-         return View('users/connection');
+         return View('user/partials/connection');
     });
     Route::post('/connection','authentificationController@shop');
 
