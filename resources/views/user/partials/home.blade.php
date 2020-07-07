@@ -1,5 +1,7 @@
 @extends('user/home')
 @section('container')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/form/vendor/jquery/jquery.min.js"></script>
 <div class="app-main__outer">
                     <div class="app-main__inner">
 
@@ -120,7 +122,7 @@
 
 
 
-<a class="btn btn-primary col-md-6" href="#" data-toggle="modal" data-target="#inscriptionModal">Modifier mes informations</a>
+<a class="btn btn-primary col-md-6" href="#"  data-toggle="modal" data-target="#exampleModal">Modifier mes informations</a>
                                                    
                                                 </div>
                                                 
@@ -145,4 +147,36 @@
                         </div>
                     </div>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="">
+        
+           @csrf()
+           <label>Mot de passe</label>
+           <input type="password" name="mdp" class="form-control">
+           <label>Ancien mot de passe : <b>{{$information->password}}</b></label>
+           
+          
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" >changer de mot de passe</button>
+        
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+@include('sweet::alert')
 @stop

@@ -5,45 +5,134 @@
                     <div class="app-main__inner">
                         <div class="app-page-title">
                                       
-                        @forelse($utilisateurs as $key => $value)
-                              {{}}
-
-                        @empty      
-                              {{rien}}
-                        @endforelse
                         
+                        <h4 class="box-title">Les  inscriptions <span class="badge badge-primary">{{$count}}</span></h4>
                         <div class="row">
                             
                             <div class="col-lg-12 ">
                                 <div class="main-card mb-3 card  ">
                                     <div class="card-body"><h5 class="card-title ">La liste des inscrits</h5>
-                                        <table class="mb-0 table table-hover table-responsive">
-                                            <thead >
-                                            <tr>
+                                    <div class="table-stats order-table ov-h">
 
-                                                <th>Nom</th>
-                                                <th>Prenom</th>
-                                                <th>Mail</th>              
-                                                <th>Numero</th>
-                        
-                                            </tr>
-                                            </thead>
-                                            <tbody >
-                                            <tr>
+<table class="table  table-responsive">
+
+    <thead>
+
+        <tr>
+
+           
+
+           
+
+            <th>Nom</th>
+
+            <th>Prénom</th>
+
+            <th>Email</th>
+
+            <th class="serial">Télephone</th>
+
+            <th>action</th>
+
+            
+
+
+
+           
+
+            
+
+          
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach( $all as $index)
+
+        <tr>
+
+            <td class="serial"><a  href="/admin/profil/{{$index->id}}" > {{$index->nom ?? ''}} </a></td>
+
+            <td class="">
+
+              <a  href="/admin/profil/{{$index->id}}" > {{$index->prenom ?? ''}} </a>
+
+            </td>
+
+            
+
+            <td> <a href="mailTo:{{$index->email ?? ''}}">{{$index->email ?? ''}}</a>  </td>
+
+            <td><a href="tel:{{$index->number}}">{{$index->number ?? ''}}</a></td>
+
+          
+
+            <td>
+
+              
+
+              <form method="post" action="/admin/demande/{{$index->id}}">
+
+                @csrf()
+
+                @method('DELETE')
+
+              
+
+                <button type="submit" class="btn btn-danger">
+
+                  
+
+                   <span class="fa fa-trash"></span>
+
+                  
+
+                </button>
+
+              
+
+            </form>
+
+              
+
+          </td>
+
+            
+
+            
+
+           
+
+               
+
+                   
+
+               
+
                                                 
-                                                <th scope="row">100.000fr</th>
-                                                <th>30.000 fr =240 000 fr</th>
-                                                <th scope="row">100.000fr</th>
-                                                <th>30.000 fr =240 000 fr</th>
-                                            </tr>
-                                            
-                                           
 
-                                           
+        </tr>
 
-                                           
-                                            </tbody>
-                                        </table>
+
+
+        @endforeach
+
+
+
+
+
+        
+
+        
+
+    </tbody>
+
+</table>
+
+{{$all->links()}}
                                     </div>
                                 </div>
                             </div>

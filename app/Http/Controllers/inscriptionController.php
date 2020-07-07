@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use UxWeb\SweetAlert\SweetAlert;
 class inscriptionController extends Controller
 {
     //
@@ -112,7 +112,7 @@ class inscriptionController extends Controller
 
 
                                 $req->session()->flash('status', 'Votre inscription est en cours de traitement');
-                                //alert()->success('Votre inscription est en cours de traitement votre mot de passe est :  '.$pass, 'Félicitation')->persistent("Close");
+                                alert()->success('Votre inscription est en cours de traitement votre mot de passe est :  '.$pass, 'Félicitation')->persistent("Close");
 
 
 
@@ -125,7 +125,7 @@ class inscriptionController extends Controller
 
                                 $req->session()->flash('Erreur', 'compte déja existant');
 
-                                //alert()->error('compte déja existant', 'Error')->persistent("Close");
+                                alert()->error('compte déja existant', 'Error')->persistent("Close");
 
                                 return view('layout/inscription');
 
@@ -147,7 +147,7 @@ class inscriptionController extends Controller
 
                             
 
-                            //alert()->error('compte déja existant', 'Error')->persistent("Close");
+                            alert()->error('compte déja existant', 'Error')->persistent("Close");
 
                             $req->session()->flash('Erreur', 'compte déja existant');
                             
@@ -172,7 +172,7 @@ class inscriptionController extends Controller
 
             
 
-                //alert()->error('compte déja existant', 'Error')->persistent("Close");
+                alert()->error('compte déja existant', 'Error')->persistent("Close");
 
                 return View('layout.inscription');
 

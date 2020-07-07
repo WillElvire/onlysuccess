@@ -41,7 +41,7 @@
                                         <ul id="navigation">
                                             <li><a class="active" href="/">Accueil</a></li>
                                             
-                                            <li><a href="/">Services</a></li>
+                                            <li><a href="/faq">faq</a></li>
                                             <li><a href="/action/inscription">Inscription</a></li>
                                             @if(\Session::has('id'))
                                             <li><a href="/user/home/{{\session('id')}}">Back office</a></li>

@@ -29,7 +29,7 @@ class authentificationController extends Controller
             
 
 
-            //alert()->success('Connection Etablie avec succès', 'Bienvenue sur votre back office')->persistent("Close");
+            alert()->success('Connection Etablie avec succès', 'Bienvenue sur votre back office')->persistent("Close");
 
              return redirect('/user/home/'.$validate->user_id);
 
@@ -37,7 +37,7 @@ class authentificationController extends Controller
         else:
 
 
-            //alert()->error('Email ou mot de passe non correct', 'Problème lors de la connection')->persistent("Close");
+            alert()->error('Email ou mot de passe non correct', 'Problème lors de la connection')->persistent("Close");
 
              
             return redirect('/user/connection')->withError($error);

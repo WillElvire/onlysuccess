@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//use UxWeb\SweetAlert\SweetAlert;
+use UxWeb\SweetAlert\SweetAlert;
 
 use Carbon\Traits\Date;
 
@@ -30,9 +30,8 @@ class investissementController extends Controller
 
         $delete=\App\investissement::find($id)->delete();
 
-      
-
-        return redirect('/user/historique');
+       
+        return redirect('/user/historique/'.\Session::get('id'));
 
        
 

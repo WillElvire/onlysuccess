@@ -27,6 +27,13 @@ Route::get('/contact',function(){
 
 });
 
+Route::get('/faq',function(){
+
+
+    return view('layout/faq');
+
+});
+
 
 //route action
 Route::group(['prefix'=>'action'],function(){
@@ -57,6 +64,7 @@ Route::group(['prefix'=>"user"],function(){
 
     Route::get('/home/{id}','profilController@index');
 
+
     Route::get('/historique/{id}','historiqueController@index');
       Route::get('/investissement/{id}',function($id){
 
@@ -71,6 +79,30 @@ Route::group(['prefix'=>"user"],function(){
 
             
       });
+
+      Route::get('/deconnection',function(){
+
+        if(\Session::has('id')):
+
+           \Session::forget('id');
+
+            return redirect('/user/connection');
+
+         
+
+            
+
+        else:
+
+             return redirect('/user/connection');
+
+        endif;
+
+      });
+      Route::delete('/historique/{id}','investissementController@delete');
+      
+
+      Route::post('/home/{id}','profilController@redirect');
 });
 
 
@@ -78,36 +110,38 @@ Route::group(['prefix'=>"user"],function(){
 
 Route::group(['prefix'=>'admin'],function(){
 
-      Route::get('/home',function(){
-
-        return View('admin/partials/home');
      
-      });
 
-      Route::get('/recherche', function(){
+  Route::get('/home','adminController@admin');
 
-        return View('admin/partials/recherche');
+  Route::post('/connection','adminController@register');
 
-      });
+  Route::get('/connection',function(){
 
-      Route::get('/inscrits', function(){
+      return view('admin/partials/connection');
+  });
 
-        return View('admin/partials/inscrits');
+  Route::post('/home','adminController@modify');
 
-      });
+  Route::get('/confirm/{id}','adminController@confirm');
 
-      Route::get('/paiement', function(){
+  Route::delete('/demande/{id}','adminController@delete');
 
-        return View('admin/partials/paiement');
+  Route::post('/recherche/','adminController@seacher');
 
-      });
+  Route::get('/demande/','adminController@demande');
+
+  Route::get('/paiement/','adminController@payement');
+
+  Route::get('/inscrits/','adminController@inscription');
+
+  
+
+  Route::get('/recherche/','adminController@search');
 
 
-      Route::get('/connection',function(){
-         return View('users/connection');
-    });
 
-    Route::post('/connection','authentificationController@shop');
+  Route::get('/profil/{id}','adminController@profil');
 
 
 });

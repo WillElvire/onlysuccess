@@ -6,63 +6,161 @@
                         <div class="app-page-title">
                                       
                         
-                        
-                        <div class="row">
-                            
-                            <div class="col-lg-12 ">
-                                <div class="main-card mb-3 card  ">
-                                    <div class="card-body"><h5 class="card-title ">Historique d'investissements</h5>
-                                        <table class="mb-0 table table-hover table-responsive">
-                                            <thead >
-                                            <tr>
-                                                <th >Pack</th>
-                                                <th>Montant</th>
-                                                <th>Durée</th>
-                                                
-                                                <th>Montant à recevoir</th>
-                                                <th>Jours de souscription</th>
-                                                <th>Jours de paye</th>
-                                                
-                                                <th>Action</th>
-                                                
-                                               
-                                            </tr>
-                                            </thead>
-                                            <tbody >
-                                            <tr>
-                                                
-                                                <th scope="row">100.000fr</th>
-                                                <th>30.000 fr =240 000 fr</th>
-                                                <th scope="row">100.000fr</th>
-                                                <th>30.000 fr =240 000 fr</th>
-                                                <th scope="row">100.000fr</th>
-                                                <th>30.000 fr =240 000 fr</th>
+                        <h4 class="box-title row justify-content-center">Historiques d'investissements   <span class="badge badge-danger">{{$historique->count() ?? 0}}</span> </h4>
+                        <div class="card-body">
 
-                                                <th> 
-                                                    <form method="post" action="/user/delete/">
-                                                     @csrf()
-                                                     @method('DELETE')
-                                                     <button  class="btn btn-danger" type="submit">supprimer</button>
-                                                    </form>
 
-                                                </th>
-                                                <th>
-                                                     <a>*</a>
-                                                </th>
-                                            </tr>
-                                            
-                                           
 
-                                           
+@if($historique->count()!=0)
 
-                                           
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="table-stats order-table table-responsive" style="width:auto !important">
+
+
+        <table class="table" style="width:auto !important">
+
+            <thead>
+
+                <tr>
+
+                   
+
+                    
+
+                    <th>Pack</th>
+
+                    <th>Montant</th>
+
+                    <th>Durée</th>
+
+                    <th >Jours de demande</th>
+
+                    <th >jour de paye</th>
+
+                    <th>Montant à recevoir</th>
+
+                    <th>Action</th>
+
+                   
+
+                  
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+               @foreach($historique as $index)
+
+                <tr>
+
+                   
+
+                    <td >
+
+                        {{$index->pack}}
+
+                    </td>
+
+                    <td> {{$index->montant}}  XOF</td>
+
+                    <td>  <span >{{$index->duree}}</span> jours</td>
+
+                    <td> <span >{{$index->created_at}}</span> </td>
+
+                    <td><span >{{$index->payDay}}</span></td>
+
+
+
+                     <td>{{$index->received}} XOF</td>
+
+                  
+
+                     <td>
+
+                         <form method="post" action="/user/historique/{{$index->id}}">
+
                            
-                      </div>
+
+                             @csrf()
+
+                             @method('DELETE')
+
+                             <button type="submit" class="btn btn-danger">
+
+                                 <span class="fa fa-trash"></span>
+
+                             </button>
+
+
+
+                         </form>
+
+                     </td>
+
+                    
+
+                </tr>
+
+
+
+                @endforeach
+
+
+
+               
+
+                
+
+            </tbody>
+
+        </table>
+
+
+
+         
+
+    @else
+
+
+
+
+
+        <div class="alert alert-primary">
+
+
+
+            Aucun historique trouvé
+
+
+
+        </div>
+
+
+
+
+
+    @endif
+
+    </div> <!-- /.table-stats -->
+
+</div>
+
+</div> <!-- /.card -->
+
+
+
+
+
+{{$historique->links()}}
+
+
+
+
+
+
+
+</div>
         </div>
     </div>
 

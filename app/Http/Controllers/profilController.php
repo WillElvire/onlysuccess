@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert;
 
 class profilController extends Controller
 {
@@ -58,7 +59,7 @@ class profilController extends Controller
         ]);
 
 
-        //alert()->success('Mot de passe modifier avec succès')->persistent("Close");
+        alert()->success('succès lors du changement du mot de passe','Bravo')->persistent("Close");
 
 
         return redirect('/user/home/'.$id);

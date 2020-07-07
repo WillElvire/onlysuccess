@@ -194,11 +194,7 @@
                                        
                                     </a>
 
-                                    <a href="/user/modification">
-                                        <i class="metismenu-icon pe-7s-car"></i>
-                                        Modifier mes informations
-                                        
-                                    </a>
+                                   
                                     <a href="/user/deconnection">
                                         <i class="metismenu-icon pe-7s-log-out"></i>
                                         déconnection

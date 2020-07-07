@@ -7,6 +7,8 @@
     <title>Inscription</title>
 
     <!-- Font Icon -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/form/vendor/jquery/jquery.min.js"></script>
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
@@ -63,7 +65,7 @@
                 </div>
             </div>
         </section>
-
+        @include('sweet::alert')
        
     </div>
 

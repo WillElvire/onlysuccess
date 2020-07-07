@@ -50,6 +50,8 @@
             </div>
         </section>
 
+        @include('sweet::alert')
+
 </main>
         <!-- JS -->
        
