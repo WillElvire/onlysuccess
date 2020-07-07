@@ -111,7 +111,7 @@ class inscriptionController extends Controller
                             
 
 
-
+                                $req->session()->flash('status', 'Votre inscription est en cours de traitement');
                                 //alert()->success('Votre inscription est en cours de traitement votre mot de passe est :  '.$pass, 'Félicitation')->persistent("Close");
 
 
@@ -123,6 +123,7 @@ class inscriptionController extends Controller
                             else:
 
 
+                                $req->session()->flash('Erreur', 'compte déja existant');
 
                                 //alert()->error('compte déja existant', 'Error')->persistent("Close");
 
@@ -147,6 +148,9 @@ class inscriptionController extends Controller
                             
 
                             //alert()->error('compte déja existant', 'Error')->persistent("Close");
+
+                            $req->session()->flash('Erreur', 'compte déja existant');
+                            
 
                             return View('layout.inscription')->withError($error);
 
