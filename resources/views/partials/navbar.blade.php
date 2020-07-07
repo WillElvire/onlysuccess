@@ -43,7 +43,12 @@
                                             
                                             <li><a href="/">Services</a></li>
                                             <li><a href="/action/inscription">Inscription</a></li>
-                                            <li><a href="/user/connection">Back office</a></li>
+                                            @if(\Session::has('id'))
+                                            <li><a href="/user/home/{{\session('id')}}">Back office</a></li>
+                                            @else
+
+                                              <li><a href="/user/connection">Back office</a></li>
+                                            @endif
                                             
                                             <li><a href="/contact">Contact</a></li>
                                         </ul>

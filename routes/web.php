@@ -57,9 +57,7 @@ Route::group(['prefix'=>"user"],function(){
 
     Route::get('/home/{id}','profilController@index');
 
-    Route::get('/historique',function(){
-         return View('user/partials/historique');
-    });
+    Route::get('/historique/{id}','historiqueController@index');
       Route::get('/investissement/{id}',function($id){
 
             if(session('id')==$id):

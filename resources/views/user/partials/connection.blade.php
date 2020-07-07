@@ -8,6 +8,9 @@
     <title>Connectez vous</title>
 
     <!-- Font Icon -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/form/vendor/jquery/jquery.min.js"></script>
+    <script src="/form/js/main.js"></script>
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
@@ -49,7 +52,6 @@
 
 </main>
         <!-- JS -->
-    <script src="/form/vendor/jquery/jquery.min.js"></script>
-    <script src="/form/js/main.js"></script>
+       
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

@@ -36,7 +36,7 @@ class historiqueController extends Controller
 
 
 
-            return View('layout/users/historique',compact('historique'))->withInvest($invest);
+            return View('user/partials/historique',compact('historique'))->withInvest($invest);
 
 
 
@@ -44,7 +44,7 @@ class historiqueController extends Controller
 
 
 
-            return redirect('/user/');
+            return redirect('/user/connection');
 
 
 
