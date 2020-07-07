@@ -116,7 +116,7 @@ class inscriptionController extends Controller
 
 
 
-                                 return redirect('action/validation')->with('pass',$pass)->with('email',$email);
+                                 return View('layout/validation')->with('pass',$pass)->with('email',$email);
 
 
 
@@ -126,7 +126,7 @@ class inscriptionController extends Controller
 
                                 //alert()->error('compte déja existant', 'Error')->persistent("Close");
 
-                                return View('action/inscription');
+                                return view('layout/inscription');
 
 
 

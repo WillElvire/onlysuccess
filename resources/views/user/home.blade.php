@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+    <title>Espace investisseur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
@@ -149,7 +149,7 @@
                                     
                                     
                                     >
-                                        <a href="/user/home">
+                                        <a href="/user/home/{{session('id')}}">
                                             <i class="metismenu-icon pe-7s-home"></i>
                                             Home
                                            
@@ -168,7 +168,7 @@
                                     
                                     
                                 >
-                                    <a href="/user/investissement">
+                                    <a href="/user/investissement/{{session('id')}}">
                                         <i class="metismenu-icon pe-7s-diamond"></i>
                                         Faire un investissement
                                        
@@ -188,7 +188,7 @@
                                     
                                     
                                 >
-                                    <a href="/user/historique">
+                                    <a href="/user/historique/{{session('id')}}">
                                         <i class="metismenu-icon pe-7s-info"></i>
                                         Mes historiques
                                        

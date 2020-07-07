@@ -49,21 +49,25 @@ Route::group(['prefix'=>"user"],function(){
     Route::get('/connection',function(){
          return View('user/partials/connection');
     });
-    Route::post('/connection','authentificationController@shop');
+    Route::post('/connection','authentificationController@register');
 
-    Route::get('/home',function(){
+    Route::get('/home/{id}','profilController@index');
 
-        return View('user/partials/home');
-     
-      });
-
-      Route::get('/historique',function(){
-
+    Route::get('/historique',function(){
          return View('user/partials/historique');
-      });
-      Route::get('/investissement',function(){
+    });
+      Route::get('/investissement/{id}',function($id){
 
-          return View('user/partials/investissement');
+            if(session('id')!=$id):
+
+                return view('user/partials/investissement');
+            else:
+
+                return redirect('/user/connection');
+
+            endif;
+
+            
       });
 });
 
