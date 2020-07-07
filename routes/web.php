@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layout/home');
-});
+}); 
 
 Route::get('/tableaux',function(){
      return View('layout/tableaux');
@@ -35,12 +35,16 @@ Route::group(['prefix'=>'action'],function(){
          return View('layout/inscription');
     });
 
-    Route::post('/inscription','InscriptionController@shop');
+    Route::post('/inscription','inscriptionController@shop');
     Route::get('/validation',function(){
           return View('layout/validation');
     });
-    
 
+    // Route::get('/inscrits',function(){
+    //      return View('admin/partials/inscrits');
+    // });
+    Route::get('/inscrits','inscritsController@show');
+    
 });
 
 //route user
@@ -71,11 +75,41 @@ Route::group(['prefix'=>"user"],function(){
       });
 });
 
+
 //route admin
 
 Route::group(['prefix'=>'admin'],function(){
 
+      Route::get('/home',function(){
 
+        return View('admin/partials/home');
+     
+      });
+
+      Route::get('/recherche', function(){
+
+        return View('admin/partials/recherche');
+
+      });
+
+      Route::get('/inscrits', function(){
+
+        return View('admin/partials/inscrits');
+
+      });
+
+      Route::get('/paiement', function(){
+
+        return View('admin/partials/paiement');
+
+      });
+
+
+      Route::get('/connection',function(){
+         return View('users/connection');
+    });
+
+    Route::post('/connection','authentificationController@shop');
 
 
 });
