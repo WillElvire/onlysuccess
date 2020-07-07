@@ -62,7 +62,7 @@ Route::group(['prefix'=>"user"],function(){
     });
       Route::get('/investissement/{id}',function($id){
 
-            if(session('id')!=$id):
+            if(session('id')==$id):
 
                 return view('user/partials/investissement');
             else:
