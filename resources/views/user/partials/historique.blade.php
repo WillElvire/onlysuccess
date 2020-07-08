@@ -64,7 +64,7 @@
 
                     <td> {{$index->montant}}  XOF</td>
 
-                    <td>  <span >{{$index->duree}}</span> jours</td>
+                    <td>  <span >{{$index->duree}} @if($index->pack=='silver')</span> heure(s)</td>@else @if($index->pack=='golden') </span> semaine(s)</td> @else  </span> jours(s)</td> @endif @endif
 
                     <td> <span >{{$index->created_at}}</span> </td>
 

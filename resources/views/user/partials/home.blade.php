@@ -5,6 +5,12 @@
 <div class="app-main__outer">
                     <div class="app-main__inner">
 
+                    <div class="alert alert-success">
+                    
+                       <p>Numéro du Service client: <b>+22570104792/+22558726750</b></p>
+                    
+                    </div>
+
                     <div class="alert alert-danger">
                         <p>
                             Cliquer ici pour faire votre investissement <br>
@@ -162,7 +168,7 @@
         
            @csrf()
            <label>Mot de passe</label>
-           <input type="password" name="mdp" class="form-control">
+           <input type="password" name="mdp" class="form-control" required value="{{$information->password}}">
            <label>Ancien mot de passe : <b>{{$information->password}}</b></label>
            
           

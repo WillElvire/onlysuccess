@@ -80,6 +80,8 @@ Route::group(['prefix'=>"user"],function(){
             
       });
 
+      Route::post('/investissement/{id}','investissementController@register');
+
       Route::get('/deconnection',function(){
 
         if(\Session::has('id')):
@@ -135,7 +137,7 @@ Route::group(['prefix'=>'admin'],function(){
 
   Route::get('/inscrits/','adminController@inscription');
 
-  
+ 
 
   Route::get('/recherche/','adminController@search');
 

@@ -63,9 +63,70 @@ class investissementController extends Controller
 
        
 
+        if($pack=="silver"):
+
+                $payday=new \DateTime(" +$duree  hours");
 
 
-        $payday=new \DateTime(" +$duree  days");
+        else:
+                if($pack=="golden"):
+
+
+                        $payday=new \DateTime(" +$duree  weeks");
+                
+                else:
+
+
+                        $payday=new \DateTime(" +$duree  days");
+
+                
+                endif;
+
+
+        endif;
+
+        if($pack=="golden"){
+
+
+                if($montant==200000 and $duree!=3 ):
+
+                        alert()->error("l'offre que vous tentez de choisir n'existe pas dans notre plan d'investissement","fatal error")->persistent("Close");;
+                        return redirect('/user/investissement/'.$id);
+
+                else:
+
+                        if($montant==300000 and $duree!=4):
+
+                                alert()->error("l'offre que vous tentez de choisir n'existe pas dans notre plan d'investissement","fatal error")->persistent("Close");;
+                                return redirect('/user/investissement/'.$id);
+
+                        else:
+
+                            if($montant==500000 and $duree!=5):
+
+                                alert()->error("l'offre que vous tentez de choisir n'existe pas dans notre plan d'investissement","fatal error")->persistent("Close");;
+                                return redirect('/user/investissement/'.$id);
+
+                            else:
+                                 
+                                 if($montant==1000000 and $duree!=7):
+
+                                        alert()->error("l'offre que vous tentez de choisir n'existe pas dans notre plan d'investissement","fatal error")->persistent("Close");;
+                                        return redirect('/user/investissement/'.$id);
+                                
+                                 endif;
+                        
+                            endif;
+
+                        endif;
+                endif;
+
+                            
+
+
+        }
+
+        
 
         if( \App\investissement::create([
 
@@ -115,30 +176,10 @@ class investissementController extends Controller
 
          alert()->success('
 
-         
-
              Votre Souscription au pack '.$pack.' est en cours de traitement  
-
-             
-
              veuillez contacter le service client afin de faire la transaction de la somme de :   '.$montant.'  XOF 
-
-             
-
-             
-
              les numéros sont les suivants  :
-
-             
-
-             +22549653016/+22576287418/+22570100191
-
-             
-
-             
-
-         
-
+             +22570104792/+22558726750
          ','confirmation d\'investissement')->persistent("Close");
 
 
@@ -174,24 +215,96 @@ class investissementController extends Controller
     public function getMontant($pack,$montant,$duree){
 
 
-
+       
 
 
         $receved=0;
 
-        if($pack=="Bronze" and $montant=="50000" and $duree==7):
 
-               $receved="75000";
+        if($pack=="silver"){
+
+
+                if($duree==6):
+
+
+                        $receved=$montant+15000;
+                
+                else:
+
+
+                   if($duree==12):
+
+
+                        $receved=$montant+30000;
+
+                   else:
+
+                         if($duree==24):
+
+
+                                $receved=$montant+50000;
+
+
+                         endif;
+
+
+
+                   endif;
+
+
+                endif;
+
+
+        }
+
+
+        if($pack=="diamond"){
+
+
+                $receved=$montant*2;
+        }
+
+
+        if($pack=="golden"){
+
+                if($montant==200000){
+
+                        $receved=600000;
+                }
+
+                if($montant==300000){
+
+                        $receved=960000;
+                }
+
+                if($montant==500000){
+
+                        $receved=1400000;
+                }
+
+                if($montant==1000000){
+
+                        $receved=2800000;
+                }
+
+
+        }
+
+
+
+        if($pack=="access" and $montant=="50000" and $duree==7):
+
+               $receved="60000";
 
         else:
 
 
 
-                if($pack=="Bronze" and $montant=="50000" and $duree==15):
+                if($pack=="access" and $montant=="50000" and $duree==15):
 
 
 
-                        $receved="100000";
+                        $receved="75000";
 
 
 
@@ -201,11 +314,11 @@ class investissementController extends Controller
 
 
 
-                        if($pack=="Bronze" and $montant=="50000" and $duree==30):
+                        if($pack=="access" and $montant=="50000" and $duree==30):
 
 
 
-                            $receved="150000";
+                            $receved="90000";
 
 
 
@@ -225,19 +338,19 @@ class investissementController extends Controller
 
 
 
-        if($pack=="Bronze" and $montant=="100000" and $duree==7):
+        if($pack=="access" and $montant=="100000" and $duree==7):
 
-            $receved="130000";
+            $receved="115000";
 
         else:
 
 
 
-             if($pack=="Bronze" and $montant=="100000" and $duree==15):
+             if($pack=="access" and $montant=="100000" and $duree==15):
 
 
 
-                     $receved="160000";
+                     $receved="140000";
 
 
 
@@ -247,11 +360,11 @@ class investissementController extends Controller
 
 
 
-                     if($pack=="Bronze" and $montant=="100000" and $duree==30):
+                     if($pack=="access" and $montant=="100000" and $duree==30):
 
 
 
-                         $receved="220000";
+                         $receved="185000";
 
 
 
@@ -269,19 +382,19 @@ class investissementController extends Controller
 
 
 
-        if($pack=="Bronze" and $montant=="150000" and $duree==7):
+        if($pack=="access" and $montant=="150000" and $duree==7):
 
-            $receved="190000";
+            $receved="170000";
 
         else:
 
 
 
-             if($pack=="Bronze" and $montant=="150000" and $duree==15):
+             if($pack=="access" and $montant=="150000" and $duree==15):
 
 
 
-                     $receved="230000";
+                     $receved="200000";
 
 
 
@@ -291,11 +404,11 @@ class investissementController extends Controller
 
 
 
-                     if($pack=="Bronze" and $montant=="150000" and $duree==30):
+                     if($pack=="access" and $montant=="150000" and $duree==30):
 
 
 
-                         $receved="310000";
+                         $receved="250000";
 
 
 
@@ -387,19 +500,19 @@ class investissementController extends Controller
 
 
 
-        if($pack=="Argent" and $montant=="300000" and $duree==7):
+        if($pack=="evasion" and $montant=="200000" and $duree==12):
 
-            $receved="400000";
+            $receved="240000";
 
      else:
 
 
 
-             if($pack=="Argent" and $montant=="300000" and $duree==15):
+             if($pack=="evasion" and $montant=="200000" and $duree==24):
 
 
 
-                     $receved="500000";
+                     $receved="290000";
 
 
 
@@ -409,11 +522,11 @@ class investissementController extends Controller
 
 
 
-                     if($pack=="Argent" and $montant=="300000" and $duree==30):
+                     if($pack=="evasion" and $montant=="200000" and $duree==31):
 
 
 
-                         $receved="600000";
+                         $receved="340000";
 
 
 
@@ -433,19 +546,19 @@ class investissementController extends Controller
 
 
 
-     if($pack=="Argent" and $montant=="500000" and $duree==7):
+     if($pack=="evasion" and $montant=="500000" and $duree==12):
 
-         $receved="650000";
+         $receved="600000";
 
      else:
 
 
 
-          if($pack=="Argent" and $montant=="500000" and $duree==15):
+          if($pack=="evasion" and $montant=="500000" and $duree==24):
 
 
 
-                  $receved="800000";
+                  $receved="760000";
 
 
 
@@ -455,7 +568,7 @@ class investissementController extends Controller
 
 
 
-                  if($pack=="Argent" and $montant=="500000" and $duree==30):
+                  if($pack=="evasion" and $montant=="500000" and $duree==31):
 
 
 
@@ -467,6 +580,11 @@ class investissementController extends Controller
 
 
 
+
+                  
+
+
+
           endif;
 
 
@@ -477,19 +595,19 @@ class investissementController extends Controller
 
 
 
-     if($pack=="Argent" and $montant=="800000" and $duree==7):
+     if($pack=="evasion" and $montant=="250000" and $duree==12):
 
-         $receved="1000000";
+         $receved="300000";
 
      else:
 
 
 
-          if($pack=="Argent" and $montant=="800000" and $duree==15):
+          if($pack=="evasion" and $montant=="250000" and $duree==24):
 
 
 
-                  $receved="1200000";
+                  $receved="380000";
 
 
 
@@ -499,11 +617,11 @@ class investissementController extends Controller
 
 
 
-                  if($pack=="Argent" and $montant=="800000" and $duree==30):
+                  if($pack=="evasion" and $montant=="250000" and $duree==31):
 
 
 
-                      $receved="1400000";
+                      $receved="480000";
 
 
 
@@ -521,19 +639,19 @@ class investissementController extends Controller
 
 
 
-     if($pack=="Argent" and $montant=="1000000" and $duree==7):
+     if($pack=="evasion" and $montant=="750000" and $duree==12):
 
-         $receved="1300000";
+         $receved="830000";
 
      else:
 
 
 
-          if($pack=="Argent" and $montant=="1000000" and $duree==15):
+          if($pack=="evasion" and $montant=="750000" and $duree==24):
 
 
 
-                  $receved="1600000";
+                  $receved="980000";
 
 
 
@@ -543,11 +661,11 @@ class investissementController extends Controller
 
 
 
-                  if($pack=="Argent" and $montant=="1000000" and $duree==30):
+                  if($pack=="evasion" and $montant=="750000" and $duree==31):
 
 
 
-                      $receved="1900000";
+                      $receved="1200000";
 
 
 
